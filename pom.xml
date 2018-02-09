@@ -11,6 +11,7 @@
 
     <modules>
         <module>SmartLine</module>
+        <module>Example</module>
     </modules>
 
     <properties>

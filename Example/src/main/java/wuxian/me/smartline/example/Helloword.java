@@ -7,4 +7,9 @@ package wuxian.me.smartline.example;
 public class Helloword {
 
 
+    public static void main(String[] args) throws Exception {
+
+    }
+
+
 }
