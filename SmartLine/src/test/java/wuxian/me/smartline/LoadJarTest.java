@@ -36,7 +36,7 @@ public class LoadJarTest {
         iter = set.iterator();
         while (iter.hasNext()) {
             ClassPath.ClassInfo info = iter.next();
-            System.out.println("className: " + info.getName());
+            //System.out.println("className: " + info.getName());
             Class clz = info.load();
             System.out.println("clz: " + clz.toGenericString());
         }
