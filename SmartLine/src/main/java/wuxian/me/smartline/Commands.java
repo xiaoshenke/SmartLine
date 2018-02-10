@@ -8,11 +8,10 @@ import org.apache.commons.lang3.tuple.Pair;
 import wuxian.me.smartline.parser.*;
 import wuxian.me.smartline.parser.node.ASTNode;
 import wuxian.me.smartline.parser.node.MyTreeAdaptor;
+import wuxian.me.smartline.util.CommandsManager;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.lang.reflect.Method;
+import java.util.*;
 
 import static java.lang.Math.toIntExact;
 
@@ -22,10 +21,10 @@ import static java.lang.Math.toIntExact;
  */
 public class Commands {
 
-    private SmartLine SmartLine;
+    private SmartLine smartLine;
 
-    public Commands(SmartLine SmartLine) {
-        this.SmartLine = SmartLine;
+    public Commands(SmartLine smartLine) {
+        this.smartLine = smartLine;
     }
 
     public boolean command(String cmd) {
@@ -58,7 +57,42 @@ public class Commands {
             return false;
         }
 
-        String cmd = t.getText().toLowerCase();  //Todo
+        String cmd = t.getText().toLowerCase();
+
+        Map<String, String> map = getParams(t);
+
+        Set<String> argNameSet = map.keySet();
+        String[] argNames = new String[argNameSet.size()];
+        argNames = argNameSet.toArray(argNames);
+
+        CommandsManager.ObjAndMethod om = CommandsManager.findCommandBy(cmd, argNames);
+        if (om == null) {
+            smartLine.info("command: " + cmd + " not supported");
+            return false;
+        }
+
+        Method method = om.getMethod();
+        Class<?>[] types = method.getParameterTypes();
+        Object[] objs = new Object[types.length];
+
+        String[] values = new String[types.length];
+        values = map.values().toArray(values);
+
+        for (int i = 0; i < values.length; i++) {
+            Class clz = types[i];
+            if (clz.equals(Integer.class) || clz.equals(int.class)) {
+                objs[i] = Integer.parseInt(values[i]);
+            } else if (clz.equals(Double.class) || clz.equals(double.class)) {
+                objs[i] = Double.parseDouble(values[i]);
+            } else {
+                objs[i] = values[i];
+            }
+        }
+        try {
+            method.invoke(om.getObj(), objs);
+        } catch (Exception e) {
+            return false;
+        }
 
         return true;
     }
@@ -72,7 +106,7 @@ public class Commands {
 
         Map<String, String> params = new HashMap<>();
         if (t.getChildCount() == 0) {
-            return null;
+            return params;
         }
 
         for (int i = 0; i < t.getChildCount(); i++) {
@@ -90,8 +124,8 @@ public class Commands {
 
 
     private void info(String content) {
-        if (SmartLine != null) {
-            SmartLine.info(content);
+        if (smartLine != null) {
+            smartLine.info(content);
         }
     }
 

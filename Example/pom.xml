@@ -56,7 +56,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>wuxian.me.smartline.example.Helloword</mainClass>
+                            <mainClass>wuxian.me.smartline.example.Helloworld</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

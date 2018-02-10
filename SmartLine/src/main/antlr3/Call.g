@@ -8,10 +8,9 @@ options {
 
 import CommonLexer;
 @header{
-package wuxian.me.ner.parser;
+package wuxian.me.smartline.parser;
 }
 
-//Todo: support 0 argument call
 call : ID LEFT params RIGHT -> ^(ID params) | ID WS* params -> ^(ID params) | ID ;
 
 params : param ((',' | WS*) param)* ;

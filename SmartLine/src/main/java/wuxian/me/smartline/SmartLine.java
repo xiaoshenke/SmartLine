@@ -3,6 +3,7 @@ package wuxian.me.smartline;
 import jline.console.ConsoleReader;
 import jline.console.completer.Completer;
 import jline.console.history.FileHistory;
+import wuxian.me.smartline.util.CommandsManager;
 
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
@@ -10,9 +11,13 @@ import java.sql.SQLException;
 
 /**
  * Created by wuxian on 3/1/2018.
- * TODO: support annotation
  */
 public class SmartLine {
+
+    //MUST CALL THIS !
+    public void loadCommandByPackage(String packageName) {
+        CommandsManager.loadCurrentComamands(packageName);
+    }
 
     private static final int ERRNO_OK = 0;
     private static final int ERRNO_ARGS = 1;
@@ -175,9 +180,9 @@ public class SmartLine {
         if (scriptOutputFile != null) {
             scriptOutputFile.addLine(line);
         }
+        commands.command(line);
 
-        //System.out.println("dispatch: " + line);
-        return commands.command(line);
+        return true;
     }
 
     //暂时先不做
