@@ -8,7 +8,7 @@ import wuxian.me.smartline.annotation.SmartLineFunc;
 public class Example {
 
     @SmartLineFunc(funcName = "example")
-    public void example() {
+    public void example_abc() {
         System.out.println("success call example");
     }
 

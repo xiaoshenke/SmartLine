@@ -146,7 +146,8 @@ public class CommandsManager {
             for (Method method : clz.getMethods()) {
                 if (method.getAnnotation(SmartLineFunc.class) != null) {
 
-                    if (method.getName().equals(funcName) && argNames.length == method.getParameterCount()) {
+                    SmartLineFunc f = method.getAnnotation(SmartLineFunc.class);
+                    if (f.funcName().equals(funcName) && argNames.length == method.getParameterCount()) {
 
                         Parameter[] parameters = method.getParameters();
                         List<String> cmpNames = new ArrayList<>(parameters.length);
