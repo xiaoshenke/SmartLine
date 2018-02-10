@@ -60,22 +60,22 @@
     <build>
         <plugins>
             <!--
-            <plugin>
-                <groupId>org.antlr</groupId>
-                <artifactId>antlr3-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>antlr</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <printGrammar>false</printGrammar>
-                    <verbose>true</verbose>
-                    <outputDirectory>src/main/java/wuxian/me/smartline/parser</outputDirectory>
-                </configuration>
-            </plugin>
+                        <plugin>
+                            <groupId>org.antlr</groupId>
+                            <artifactId>antlr3-maven-plugin</artifactId>
+                            <executions>
+                                <execution>
+                                    <goals>
+                                        <goal>antlr</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                            <configuration>
+                                <printGrammar>false</printGrammar>
+                                <verbose>true</verbose>
+                                <outputDirectory>src/main/java/wuxian/me/smartline/parser</outputDirectory>
+                            </configuration>
+                        </plugin>
             -->
 
             <plugin>

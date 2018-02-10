@@ -11,10 +11,5 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface SmartLineFunc {
-
     String funcName() default "";
-
-    String[] argNames() default "";
-
-    String[] argTypes() default "";
 }

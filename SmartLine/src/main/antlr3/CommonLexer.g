@@ -4,7 +4,7 @@
 lexer grammar CommonLexer;
 
 @header{
-package wuxian.me.ner.parser;
+package wuxian.me.smartline.parser;
 }
 
 ID : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')* ;

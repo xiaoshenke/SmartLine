@@ -54,14 +54,14 @@ public class SmartLine {
      */
     public static void mainWithInputRedirection(String[] args, InputStream inputStream)
             throws IOException {
-        SmartLine beeLine = new SmartLine();
+        SmartLine smartLine = new SmartLine();
         try {
-            int status = beeLine.begin(args, inputStream);
+            int status = smartLine.begin(args, inputStream);
             if (!Boolean.getBoolean(SmartLineOpts.PROPERTY_NAME_EXIT)) {
                 System.exit(status);
             }
         } finally {
-            beeLine.close();
+            smartLine.close();
         }
     }
 

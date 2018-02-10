@@ -9,17 +9,17 @@ public class Example {
 
     @SmartLineFunc(funcName = "example")
     public void example() {
-        System.out.println("example");
+        System.out.println("success call example");
     }
 
     @SmartLineFunc(funcName = "example_with_1_param")
     public void example_with_1_param(String param1) {
-        System.out.println("example_with_1_param param1: " + param1);
+        System.out.println("success call example_with_1_param param1: " + param1);
     }
 
     @SmartLineFunc(funcName = "example_with_2_param")
     public void example_with_2_param(String param1, Integer param2) {
-        System.out.println("example_with_1_param param1: " + param1 + " param2: " + param2);
+        System.out.println("success call example_with_1_param param1: " + param1 + " param2: " + param2);
     }
 
     public static void main(String[] args) throws Exception {

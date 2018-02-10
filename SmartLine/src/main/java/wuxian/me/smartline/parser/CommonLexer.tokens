@@ -1,5 +1,3 @@
-T__13=13
-T__14=14
 CHAR=4
 ESC=5
 FLOAT=6
@@ -9,4 +7,3 @@ LEFT=9
 RIGHT=10
 STRING=11
 WS=12
-Tokens=15

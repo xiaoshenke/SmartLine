@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 CommonLexer.g 2018-01-04 19:11:34
+// $ANTLR 3.5.2 CommonLexer.g 2018-02-10 19:36:14
 
 package wuxian.me.smartline.parser;
 
