@@ -16,7 +16,7 @@ import java.util.*;
 /**
  * Created by wuxian on 3/1/2018.
  */
-class SmartLineOpts implements Completer {
+public class SmartLineOpts implements Completer {
     public static final int DEFAULT_MAX_WIDTH = 80;
     public static final int DEFAULT_MAX_HEIGHT = 80;
     public static final int DEFAULT_HEADER_INTERVAL = 100;
